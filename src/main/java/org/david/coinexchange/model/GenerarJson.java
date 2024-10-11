@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class GenerarJson {
-    public void guardarJson (Moneda moneda, String monedaCambio) throws IOException {
+    public void guardarJson (Moneda moneda, String monedaCambio, double valorACambiar, double resultadoCambio) throws IOException {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -27,6 +27,8 @@ public class GenerarJson {
         JsonObject json = new JsonObject();
         json.addProperty("base_code", moneda.base_code());
         json.add("conversion_rates", tasaFiltrada);
+        json.addProperty("valorACambiar", valorACambiar);
+        json.addProperty("resultado_cambio", resultadoCambio);
 
         String carpetaDestino = "cambios";
         Path ruta = Paths.get(carpetaDestino);

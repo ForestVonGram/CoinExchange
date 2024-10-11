@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.david.coinexchange.model.ConsultaMoneda;
 import org.david.coinexchange.model.GenerarJson;
@@ -24,6 +25,9 @@ public class Controller {
 
     @FXML
     private ComboBox<String> moneda_cambio;
+
+    @FXML
+    private TextField valor_cambio;
 
     @FXML
     private Button conversion;
@@ -50,16 +54,21 @@ public class Controller {
     private void calcularCambio() {
         String base = moneda_base.getValue();
         String cambio = moneda_cambio.getValue();
+        String valorTexto = valor_cambio.getText();
 
-        if (base != null && cambio != null) {
+        if (base != null && cambio != null && !valorTexto.isEmpty()) {
             try {
+                double valor = Double.parseDouble(valorTexto);
                 Moneda moneda = consultaMoneda.buscarMoneda(base);
                 double tasaCambio = moneda.conversion_rates().get(cambio);
-                resultado.setText("Tasa de cambio: " + tasaCambio);
+                double resultadoCambio = valor * tasaCambio;
+
+                resultado.setText(String.valueOf(resultadoCambio));
 
                 GenerarJson generarJson = new GenerarJson();
-                generarJson.guardarJson(moneda, cambio);
-                resultado.setText("Tasa de cambio: " + tasaCambio);
+                generarJson.guardarJson(moneda, cambio, valor, resultadoCambio);
+            }catch (NumberFormatException e) {
+                resultado.setText("Error: ingrese un número válido.");
             } catch (RuntimeException | IOException e) {
                 resultado.setText("Error: " + e.getMessage());
             }
