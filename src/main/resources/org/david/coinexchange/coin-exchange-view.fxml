@@ -26,7 +26,10 @@
          </font></Text>
       <ComboBox fx:id="moneda_base" layoutX="87.0" layoutY="251.0" prefWidth="150.0" />
       <ComboBox fx:id="moneda_cambio" layoutX="283.0" layoutY="251.0" prefWidth="150.0" />
-      <TextField fx:id="valor_cambio" layoutX="695.0" layoutY="251.0" />
+      <TextField fx:id="valor_cambio" layoutX="698.0" layoutY="250.0">
+         <font>
+            <Font name="Franklin Gothic Medium Cond" size="15.0" />
+         </font></TextField>
       <Button fx:id="conversion" layoutX="733.0" layoutY="342.0" mnemonicParsing="false" text="Convertir">
          <font>
             <Font name="Franklin Gothic Medium Cond" size="16.0" />
