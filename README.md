@@ -10,3 +10,4 @@
 <p>Como extras, se usó Scene Builder y Java FX para crear una interfaz gráfica.</p>
 <h3>AVISO</h3>
 <p>Este programa no funcionará si no se tiene el módulo Gson de Google.</p>
+<p>A este programa le hace falta la funcionalidad de introducir un valor determinado para hacer la conversión.</p>
