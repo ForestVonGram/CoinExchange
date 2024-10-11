@@ -7,3 +7,4 @@
   <li>Peso colombiano</li>
 </ol>
 <p>Este código se hizo de acuerdo a los requerimientos planteados por el challenge de la plataforma Alura para la programación orientada a objetos en Java.</p>
+<p>Como extras, se usó Scene Builder y Java FX para crear una interfaz gráfica.</p>
